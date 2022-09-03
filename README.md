@@ -1,2 +1,2 @@
-# CODEGYM_A02
+# !nopのリポジトリ
 CODEGYMのチーム開発(チームA02)
