@@ -1,0 +1,62 @@
+<!doctype html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>MathJax + AngularJS sample</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.css" integrity="sha384-6LkG2wmY8FK9E0vU9OOr8UvLwsaqUg9SETfpq4uTCN1agNe8HRdE9ABlk+fVx6gZ" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.js" integrity="sha384-31El76TwmbHj4rF9DyLsygbq6xoIobG0W+jqXim+a3dU9W53tdH3A/ngRPxOzzaB" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
+</head>
+<body>
+    <p>demo</p>
+    
+<div>
+    <textarea id="a"></textarea>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {delimiters: [
+        {left: "\\[", right: "\\]", display: true},
+        {left: "$", right: "$", display: false}
+      ]});
+    });
+</script>
+<br />
+<!-- プレビュー表示 -->
+<div id="result">ここに文章を表示</div>
+<div>
+    <textarea id="d" placeholder=""></textarea>
+</div>
+<script>
+    let successInput = " ";
+    let p = /^[ぁ-んァ-ヶｱ-ﾝﾞﾟ一-龠]*$/g
+    document.getElementById("a").addEventListener("input",(e) => {
+        let el = event.target.value;
+        //console.log(el.replace(/[a-z]+/g,'\\text{$1}'));
+        // (2) 数式の表示
+        el = el.replace(/ /g,"\\,");
+        el = el.replace(/\n/g,"\\\\");
+        try{
+            katex.render(el, document.getElementById("result"));
+            successInput = el;
+            console.log(document.getElementById("result").childNodes);
+        } catch(e){
+            if (e instanceof katex.ParseError) {
+                katex.render(successInput, document.getElementById("result"));
+            } else {
+                throw e;  // other error
+            }
+        }
+    });
+    document.getElementById("result").addEventListener("click",(e) => {
+        endpoint = document.getElementById("result").innerText.search(/\n/);
+        text = document.getElementById("result").innerText.slice(0,endpoint);
+        text = text.replace(/\\,/g," ");
+        text = text.replace(/\\\\/g,"\n");
+        console.log(text);
+        document.getElementById("d").value = text;
+    });
+</script>
+</body>
+</html>
