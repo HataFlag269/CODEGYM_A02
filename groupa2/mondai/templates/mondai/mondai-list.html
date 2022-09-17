@@ -1,0 +1,99 @@
+
+{% load static %}
+<!doctype html>
+<html lang="ja">
+<head>
+  <link rel="stylesheet" href="{% static 'css/mondaimitame.css' %}">
+  <script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
+  <script src="{% static 'js/garlic.js' %}"></script>
+  <script src="{% static 'js/timer.js' %}"></script>
+</head>
+<br>
+<div class="site-wrap">
+
+  <nav class="site-nav">
+
+    <div class="name">
+      小テストナビゲーション
+
+    </div>
+
+    <ol class="daimon">
+      <li>
+        <details>
+          <summary></summary>
+          <ol class="shomon">
+            <li><a href="#q1">リンク</a></li><br>
+            <li></li><br>
+          </ol>
+        </details>
+      </li>
+      <li>
+        <details>
+          <summary></summary>
+          <ol class="shomon">
+
+          </ol>
+        </details>
+      </li>
+      <li></li>
+    </ol>
+
+    <p id="temporaryBox" style="display: none;">
+      5秒間だけ表示されるボックスです。<br />
+      <input type="button" value="ずっと表示しておく" id="btnKeepBox" onclick="keepBox();">
+      <input type="button" value="今すぐ消す" id="btnCloseBox" onclick="closeBox();">
+    </p>
+    <p>
+        <input type="button" value="5秒間だけ表示されるボックスを表示する" id="btnShowBox" onclick="showBox();">
+    </p>
+
+  </nav>
+
+  <main>
+    <form action="" data-persist="garlic" method="post">
+
+      <header>
+        <div class="breadcrumbs">
+          <a href="#0/">CodegymAcademy</a>
+        </div>
+
+        <h1 class="title">テスト名</h1>
+
+      </header>
+
+      <div>
+
+        <div>
+          <div id="q1" class="mondai">大問1</div>
+          <div class="honbun">
+
+            <h3>高いビルの最上階から地上を見下ろした場合とその1つ下の階から見下ろした場合を比較したときと、大学の校舎の3階から見下ろした場合と2階から見下ろした場合を比較したときでは、大きさの見え方の印象が異なる。どのような印象の違いか、またその違いがなぜ生じるか、簡単に説明せよ。</h3>
+            
+            <p> <textarea rows=5 cols=50 name=”b”></textarea> </p>
+            
+
+          </div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+
+        </div>
+
+      </div>
+    </form>
+
+  </main>
+
+</div>
+
+</html>

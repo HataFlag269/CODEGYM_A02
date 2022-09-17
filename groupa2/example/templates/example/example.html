@@ -1,0 +1,46 @@
+{% load static %}
+<!doctype html>
+<html lang="ja">
+<head>
+    <script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
+    <script src="{% static 'js/garlic.js' %}"></script>
+</head>
+<body>
+    <form action="" data-persist="garlic" method="post">
+        <div class="grid-container">
+        <div class="grid-item">
+        <dl class="report">
+        <dt>担当者</dt>
+        <dd><span class="your-name"><select name="your-name[]" aria-required="true" aria-invalid="false" multiple="multiple"><option value="大谷">大谷</option><option value="山田">山田</option><option value="鈴木">鈴木</option><option value="佐々木">佐々木</option></select></span></dd>
+        </dl>
+        </div>
+        <div class="grid-item">
+        <dl class="report">
+        <dt>測定日</dt>
+        <dd><span class="measurement-date"><input type="date" name="measuring-date" value="" aria-required="true" aria-invalid="false" /></span></dd>
+        </dl>
+        </div>
+        </div>
+        <div class="grid-container">
+        <div class="grid-item">
+        <div class="title">測定箇所</div>
+        <dl class="measurement-point report">
+        <dt>水深</dt>
+        <dd class="depth"><span class="depth"><input type="number" name="depth" value="4500" min="1000" max="8000" aria-required="true" aria-invalid="false" /></span></dd>
+        <dt>水温</dt>
+        <dd class="temperature"><span class="temperature-10"><input type="number" name="temperature-10" value="20" min="0" max="40" aria-required="true" aria-invalid="false" /></span>.<span class="temperature-1"><input type="number" name="temperature-1" value="0" min="0" max="9" aria-invalid="false" /></span></dd>
+        <dt>測定時刻</dt>
+        <dd class="time"><span class="hour"><input type="number" name="hour" value="16" min="0" max="24" aria-required="true" aria-invalid="false" /></span>:<span class="min"><input type="number" name="min" value="0" min="0" max="59" aria-required="true" aria-invalid="false" /></span></dd>
+        </dl>
+        </div>
+        <div class="grid-item">
+        <dl class="report">
+        <dt>備考</dt>
+        <dd><span class="remarks"><textarea name="remarks" cols="40" rows="10" aria-invalid="false"></textarea></span></dd>
+        </dl>
+        </div>
+        </div>
+        <p class="submit"><input type="button" value="&#xf0e0;　送　信" class="fas" /></p>
+        </form>
+</body>
+</html>
