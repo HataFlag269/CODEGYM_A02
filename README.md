@@ -1,3 +1,3 @@
-CodeGym group dev
+CodeGym team dev
 
 # Team !NOP
